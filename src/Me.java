@@ -24,8 +24,9 @@ public class Me implements Pokeable
 
     public static void main(String[] args) throws RemoteException
     {
-        String hostname = "localhost";
+        String hostname = "192.168.1.201";
         int port = Registry.REGISTRY_PORT;
+        System.setProperty("java.rmi.server.hostname", hostname) ;
         Registry reg = LocateRegistry.createRegistry(Registry.REGISTRY_PORT);
         new Me(hostname,port);
     }

@@ -1,5 +1,4 @@
 import java.rmi.NotBoundException;
-import java.rmi.RMISecurityManager;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -14,7 +13,6 @@ public class RPI
 
     public RPI(String hostname, int port) throws RemoteException, NotBoundException
     {
-        System.setSecurityManager(new RMISecurityManager());
         Registry registry = LocateRegistry.getRegistry(hostname,port);
         System.out.println(Arrays.toString(registry.list()));
         Pokeable pokeable = (Pokeable) registry.lookup("matt");
